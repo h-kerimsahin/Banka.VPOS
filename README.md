@@ -1,6 +1,5 @@
 # CP.VPOS
-[![Nuget download](https://img.shields.io/nuget/dt/CP.VPOS)](https://www.nuget.org/packages/CP.VPOS) [![Nuget v2](https://img.shields.io/nuget/v/CP.VPOS)](https://www.nuget.org/packages/CP.VPOS) ![build](https://img.shields.io/github/actions/workflow/status/cempehlivan/CP.VPOS/dotnet.yml?branch=master) [![GitHub license](https://img.shields.io/github/license/cempehlivan/CP.VPOS)](https://github.com/cempehlivan/CP.VPOS/blob/master/LICENSE)
-
+(https://img.shields.io/github/actions/workflow/status/cempehlivan/CP.VPOS/dotnet.yml?branch=master) [![GitHub license](https://img.shields.io/github/license/cempehlivan/CP.VPOS)](https://github.com/cempehlivan/CP.VPOS/blob/master/LICENSE)
 
 
 ## CP.VPOS: Sanal Pos Entegrasyonlarını Basitleştirin
@@ -18,19 +17,6 @@ CP.VPOS, Türkiye'deki birçok bankanın sanal pos entegrasyonlarını tek bir k
 ## Sürüm Notları
 
 Son değişiklikler için: [CHANGELOG.md](CHANGELOG.md)
-
-## Kütüphaneyi Nasıl Kullanabilirsiniz?
-CP.VPOS kütüphanesini NuGet paket yöneticisi aracılığıyla projenize ekleyebilirsiniz. Kütüphanenin kullanımıyla ilgili aşağıda bulunan kod örneklerine göz atabilirsiniz.
-
-[https://www.nuget.org/packages/CP.VPOS](https://www.nuget.org/packages/CP.VPOS)
-
-Package Manager:
-
-> Install-Package CP.VPOS
-
-Dotnet CLI
-> dotnet add package CP.VPOS
-
 
 ## Kullanılabilir Sanal POS'lar
 
@@ -80,7 +66,6 @@ Dotnet CLI
 
 
 # Dokümanlar
-
 Detaylı dokümanlara [https://www.vpos.com.tr/docs](https://www.vpos.com.tr/docs) adresinden ulaşabilirsiniz.
 
 ## API Bilgilerinin ayarlanması - `VirtualPOSAuth` Class'ı
