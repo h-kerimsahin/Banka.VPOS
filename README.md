@@ -1,6 +1,4 @@
 # CP.VPOS
-(https://img.shields.io/github/actions/workflow/status/cempehlivan/CP.VPOS/dotnet.yml?branch=master) [![GitHub license](https://img.shields.io/github/license/cempehlivan/CP.VPOS)](https://github.com/cempehlivan/CP.VPOS/blob/master/LICENSE)
-
 
 ## CP.VPOS: Sanal Pos Entegrasyonlarını Basitleştirin
 
