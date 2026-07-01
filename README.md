@@ -1,11 +1,11 @@
-# Banka.VPOS
-[![Nuget download](https://img.shields.io/nuget/dt/Banka.VPOS)](https://www.nuget.org/packages/Banka.VPOS) [![Nuget v2](https://img.shields.io/nuget/v/Banka.VPOS)](https://www.nuget.org/packages/Banka.VPOS) ![build](https://img.shields.io/github/actions/workflow/status/cempehlivan/Banka.VPOS/dotnet.yml?branch=master) [![GitHub license](https://img.shields.io/github/license/cempehlivan/Banka.VPOS)](https://github.com/cempehlivan/Banka.VPOS/blob/master/LICENSE)
+# CP.VPOS
+[![Nuget download](https://img.shields.io/nuget/dt/CP.VPOS)](https://www.nuget.org/packages/CP.VPOS) [![Nuget v2](https://img.shields.io/nuget/v/CP.VPOS)](https://www.nuget.org/packages/CP.VPOS) ![build](https://img.shields.io/github/actions/workflow/status/cempehlivan/CP.VPOS/dotnet.yml?branch=master) [![GitHub license](https://img.shields.io/github/license/cempehlivan/CP.VPOS)](https://github.com/cempehlivan/CP.VPOS/blob/master/LICENSE)
 
 
 
-## Banka.VPOS: Sanal Pos Entegrasyonlarını Basitleştirin
+## CP.VPOS: Sanal Pos Entegrasyonlarını Basitleştirin
 
-Banka.VPOS, Türkiye'deki birçok bankanın sanal pos entegrasyonlarını tek bir kod tabanı ile kullanmayı mümkün kılan .NET kütüphanesidir. Bu sayede geliştiriciler, her banka için ayrı ayrı kod yazmak zorunda kalmadan, tüm sanal pos işlemlerini tek bir kütüphane üzerinden gerçekleştirebilirler.
+CP.VPOS, Türkiye'deki birçok bankanın sanal pos entegrasyonlarını tek bir kod tabanı ile kullanmayı mümkün kılan .NET kütüphanesidir. Bu sayede geliştiriciler, her banka için ayrı ayrı kod yazmak zorunda kalmadan, tüm sanal pos işlemlerini tek bir kütüphane üzerinden gerçekleştirebilirler.
 
 ## Kütüphanenin Özellikleri
 
@@ -20,21 +20,21 @@ Banka.VPOS, Türkiye'deki birçok bankanın sanal pos entegrasyonlarını tek bi
 Son değişiklikler için: [CHANGELOG.md](CHANGELOG.md)
 
 ## Kütüphaneyi Nasıl Kullanabilirsiniz?
-Banka.VPOS kütüphanesini NuGet paket yöneticisi aracılığıyla projenize ekleyebilirsiniz. Kütüphanenin kullanımıyla ilgili aşağıda bulunan kod örneklerine göz atabilirsiniz.
+CP.VPOS kütüphanesini NuGet paket yöneticisi aracılığıyla projenize ekleyebilirsiniz. Kütüphanenin kullanımıyla ilgili aşağıda bulunan kod örneklerine göz atabilirsiniz.
 
-[https://www.nuget.org/packages/Banka.VPOS](https://www.nuget.org/packages/Banka.VPOS)
+[https://www.nuget.org/packages/CP.VPOS](https://www.nuget.org/packages/CP.VPOS)
 
 Package Manager:
 
-> Install-Package Banka.VPOS
+> Install-Package CP.VPOS
 
 Dotnet CLI
-> dotnet add package Banka.VPOS
+> dotnet add package CP.VPOS
 
 
 ## Kullanılabilir Sanal POS'lar
 
-![ss](https://raw.githubusercontent.com/cempehlivan/Banka.VPOS/master/bankalar.png)
+![ss](https://raw.githubusercontent.com/cempehlivan/CP.VPOS/master/bankalar.png)
 
 | Sanal POS | Satış | Satış 3D | İptal | İade  |
 | --------- | :---: | :------: | :---: | :---: |
@@ -89,7 +89,7 @@ Alan açıklamaları:
 
 | Alan | Tür | Açıklama |
 | ---- | --- | -------- |
-| `bankCode` | `string` | Hangi banka entegrasyonunun kullanılacağının belirlendiği alandır. Banka kodlarının belirlenmesinde, bankaların global EFT kodları kullanılmıştır. 4 haneli olarak girilmelidir. Örneğin; Akbank global EFT kodu `46` dır. Akbank Sanal POS entegrasyonunu kullanmak için `0046` girilmelidir. Veya [Banka.VPOS.Services.BankService](./Banka.VPOS/Services/BankService.cs) Enum Class'ı kullanılabilir. Örneğin: `Banka.VPOS.Services.BankService.Akbank` |
+| `bankCode` | `string` | Hangi banka entegrasyonunun kullanılacağının belirlendiği alandır. Banka kodlarının belirlenmesinde, bankaların global EFT kodları kullanılmıştır. 4 haneli olarak girilmelidir. Örneğin; Akbank global EFT kodu `46` dır. Akbank Sanal POS entegrasyonunu kullanmak için `0046` girilmelidir. Veya [CP.VPOS.Services.BankService](./CP.VPOS/Services/BankService.cs) Enum Class'ı kullanılabilir. Örneğin: `CP.VPOS.Services.BankService.Akbank` |
 | `merchantID` | `string` | Firma kodu |
 | `merchantUser` | `string` | API kullanıcı adı |
 | `merchantPassword` | `string` | API kullanıcı şifre |
@@ -101,44 +101,44 @@ Sanal POS bazlı alan açıklamaları:
 
 | Sanal POS | bankCode | merchantID | merchantUser | merchantPassword | merchantStorekey |
 | --------- | -------- | ---------- | ------------ | ---------------- | ---------------- |
-| Akbank | Banka.VPOS.Services.BankService.Akbank | İş Yeri No | Güvenli İşyeri Numarası (merchantSafeId) | Terminal Safe ID | Güvenlik Anahtarı (Secret Key) |
-| Akbank Nestpay | Banka.VPOS.Services.BankService.AkbankNestpay | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| Alternatif Bank | Banka.VPOS.Services.BankService.AlternatifBank | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| Anadolubank | Banka.VPOS.Services.BankService.Anadolubank | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| Denizbank | Banka.VPOS.Services.BankService.Denizbank | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| QNB Finansbank | Banka.VPOS.Services.BankService.QNBFinansbank | Üye İşyeri Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | Üye İşyeri Şifre |
-| Finansbank Nestpay | Banka.VPOS.Services.BankService.FinansbankNestpay | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| Garanti BBVA | Banka.VPOS.Services.BankService.GarantiBBVA | Firma Kodu | Terminal No | `PROVAUT` kullanıcısı şifresi | 3D secure anahtarı |
-| Halkbank | Banka.VPOS.Services.BankService.Halkbank | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| ING Bank | Banka.VPOS.Services.BankService.INGBank | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| İş Bankası | Banka.VPOS.Services.BankService.IsBankasi | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| Şekerbank | Banka.VPOS.Services.BankService.Sekerbank | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| Türk Ekonomi Bankası | Banka.VPOS.Services.BankService.TurkEkonomiBankasi | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| Türkiye Finans | Banka.VPOS.Services.BankService.TurkiyeFinans | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| Vakıfbank | Banka.VPOS.Services.BankService.Vakifbank | Üye İşyeri Numarası | POS No | Api Şifresi | |
-| Yapı Kredı Bankası | Banka.VPOS.Services.BankService.YapiKrediBankasi | Firma Kodu | Terminal No | Pos Net ID | ENCKEY |
-| Ziraat Bankası | Banka.VPOS.Services.BankService.ZiraatBankasi | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| Cardplus | Banka.VPOS.Services.BankService.Cardplus | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
-| Paratika | Banka.VPOS.Services.BankService.Paratika | Firma Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | |
-| Payten - MSU | Banka.VPOS.Services.BankService.Payten | Firma Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | |
-| Iyzico | Banka.VPOS.Services.BankService.Iyzico | Üye İşyeri Numarası | API Anahtarı | Güvenlik Anahtarı | |
-| Sipay | Banka.VPOS.Services.BankService.Sipay | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
-| QNBpay | Banka.VPOS.Services.BankService.QNBpay | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
-| ParamPos | Banka.VPOS.Services.BankService.ParamPos | Terminal No (Client Code) | Kullanıcı Adı | Şifre | Anahtar (Guid) |
-| PayBull | Banka.VPOS.Services.BankService.PayBull | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
-| Parolapara | Banka.VPOS.Services.BankService.Parolapara | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
-| IQmoney | Banka.VPOS.Services.BankService.IQmoney | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
-| Ahlpay | Banka.VPOS.Services.BankService.Ahlpay | member Id | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | Üye işyeri API Key (hashPassword) |
-| Moka | Banka.VPOS.Services.BankService.Moka | Bayi Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | |
-| Vepara | Banka.VPOS.Services.BankService.Vepara | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
-| ZiraatPay | Banka.VPOS.Services.BankService.ZiraatPay | Firma Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | |
-| VakıfPayS | Banka.VPOS.Services.BankService.VakifPayS | Firma Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | |
-| Tami | Banka.VPOS.Services.BankService.Tami | Üye İşyeri No | Terminal No | `KidValue` + "\|" + `KValue` | Secret Key |
-| HalkÖde | Banka.VPOS.Services.BankService.HalkOde | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
-| Kuveyt Türk | Banka.VPOS.Services.BankService.KuveytTurk | MerchantId | UserName | Password | CustomerId |
-| Vakıf Katılım | Banka.VPOS.Services.BankService.VakifKatilim | MerchantId | UserName | Password | CustomerId |
-| PayNKolay | Banka.VPOS.Services.BankService.PayNKolay | sx (Token) | sx list | sx iptal | Merchant Secret Key |
-| Paynet | Banka.VPOS.Services.BankService.Paynet | Bayi Kodu | Publishable Key | Secret Key | |
+| Akbank | CP.VPOS.Services.BankService.Akbank | İş Yeri No | Güvenli İşyeri Numarası (merchantSafeId) | Terminal Safe ID | Güvenlik Anahtarı (Secret Key) |
+| Akbank Nestpay | CP.VPOS.Services.BankService.AkbankNestpay | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| Alternatif Bank | CP.VPOS.Services.BankService.AlternatifBank | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| Anadolubank | CP.VPOS.Services.BankService.Anadolubank | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| Denizbank | CP.VPOS.Services.BankService.Denizbank | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| QNB Finansbank | CP.VPOS.Services.BankService.QNBFinansbank | Üye İşyeri Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | Üye İşyeri Şifre |
+| Finansbank Nestpay | CP.VPOS.Services.BankService.FinansbankNestpay | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| Garanti BBVA | CP.VPOS.Services.BankService.GarantiBBVA | Firma Kodu | Terminal No | `PROVAUT` kullanıcısı şifresi | 3D secure anahtarı |
+| Halkbank | CP.VPOS.Services.BankService.Halkbank | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| ING Bank | CP.VPOS.Services.BankService.INGBank | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| İş Bankası | CP.VPOS.Services.BankService.IsBankasi | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| Şekerbank | CP.VPOS.Services.BankService.Sekerbank | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| Türk Ekonomi Bankası | CP.VPOS.Services.BankService.TurkEkonomiBankasi | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| Türkiye Finans | CP.VPOS.Services.BankService.TurkiyeFinans | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| Vakıfbank | CP.VPOS.Services.BankService.Vakifbank | Üye İşyeri Numarası | POS No | Api Şifresi | |
+| Yapı Kredı Bankası | CP.VPOS.Services.BankService.YapiKrediBankasi | Firma Kodu | Terminal No | Pos Net ID | ENCKEY |
+| Ziraat Bankası | CP.VPOS.Services.BankService.ZiraatBankasi | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| Cardplus | CP.VPOS.Services.BankService.Cardplus | Mağaza Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | 3D Storekey (Üye İş Yeri Anahtarı) |
+| Paratika | CP.VPOS.Services.BankService.Paratika | Firma Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | |
+| Payten - MSU | CP.VPOS.Services.BankService.Payten | Firma Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | |
+| Iyzico | CP.VPOS.Services.BankService.Iyzico | Üye İşyeri Numarası | API Anahtarı | Güvenlik Anahtarı | |
+| Sipay | CP.VPOS.Services.BankService.Sipay | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
+| QNBpay | CP.VPOS.Services.BankService.QNBpay | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
+| ParamPos | CP.VPOS.Services.BankService.ParamPos | Terminal No (Client Code) | Kullanıcı Adı | Şifre | Anahtar (Guid) |
+| PayBull | CP.VPOS.Services.BankService.PayBull | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
+| Parolapara | CP.VPOS.Services.BankService.Parolapara | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
+| IQmoney | CP.VPOS.Services.BankService.IQmoney | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
+| Ahlpay | CP.VPOS.Services.BankService.Ahlpay | member Id | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | Üye işyeri API Key (hashPassword) |
+| Moka | CP.VPOS.Services.BankService.Moka | Bayi Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | |
+| Vepara | CP.VPOS.Services.BankService.Vepara | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
+| ZiraatPay | CP.VPOS.Services.BankService.ZiraatPay | Firma Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | |
+| VakıfPayS | CP.VPOS.Services.BankService.VakifPayS | Firma Kodu | Api Kullanıcısı Adı | Api Kullanıcısı Şifre | |
+| Tami | CP.VPOS.Services.BankService.Tami | Üye İşyeri No | Terminal No | `KidValue` + "\|" + `KValue` | Secret Key |
+| HalkÖde | CP.VPOS.Services.BankService.HalkOde | Üye İşyeri ID | Uygulama Anahtarı | Uygulama Parolası | Üye İşyeri Anahtarı |
+| Kuveyt Türk | CP.VPOS.Services.BankService.KuveytTurk | MerchantId | UserName | Password | CustomerId |
+| Vakıf Katılım | CP.VPOS.Services.BankService.VakifKatilim | MerchantId | UserName | Password | CustomerId |
+| PayNKolay | CP.VPOS.Services.BankService.PayNKolay | sx (Token) | sx list | sx iptal | Merchant Secret Key |
+| Paynet | CP.VPOS.Services.BankService.Paynet | Bayi Kodu | Publishable Key | Secret Key | |
 
 
 ## 3D'siz Direkt Satış İşlemi
@@ -149,7 +149,7 @@ Sanal POS bazlı alan açıklamaları:
 ```csharp
 VirtualPOSAuth _qnbPayTest = new VirtualPOSAuth
 {
-    bankCode = Banka.VPOS.Services.BankService.QNBpay,
+    bankCode = CP.VPOS.Services.BankService.QNBpay,
     merchantID = "20158",
     merchantUser = "07fb70f9d8de575f32baa6518e38c5d6",
     merchantPassword = "61d97b2cac247069495be4b16f8604db",
@@ -166,7 +166,7 @@ CustomerInfo customerInfo = new CustomerInfo
 	phoneNumber = "1111111111",
 	addressDesc = "adres",
 	cityName = "istanbul",
-	country = Banka.VPOS.Enums.Country.TUR,
+	country = CP.VPOS.Enums.Country.TUR,
 	postCode = "34000",
 	taxOffice = "maltepe",
 	townName = "maltepe"
@@ -184,7 +184,7 @@ SaleRequest saleRequest = new SaleRequest
 		cardExpiryDateYear = 2050,
 		cardCVV = "988",
 		amount = (decimal)10,
-		currency = Banka.VPOS.Enums.Currency.TRY,
+		currency = CP.VPOS.Enums.Currency.TRY,
 		installment = 1,
 	},
 	payment3D = new Payment3D
@@ -212,7 +212,7 @@ Bu işlem sonrası client, banka 3D doğrulama sayfasına yönlendirilir. Bu say
 ```csharp
 VirtualPOSAuth _qnbPayTest = new VirtualPOSAuth
 {
-    bankCode = Banka.VPOS.Services.BankService.QNBpay,
+    bankCode = CP.VPOS.Services.BankService.QNBpay,
     merchantID = "20158",
     merchantUser = "07fb70f9d8de575f32baa6518e38c5d6",
     merchantPassword = "61d97b2cac247069495be4b16f8604db",
@@ -229,7 +229,7 @@ CustomerInfo customerInfo = new CustomerInfo
 	phoneNumber = "1111111111",
 	addressDesc = "adres",
 	cityName = "istanbul",
-	country = Banka.VPOS.Enums.Country.TUR,
+	country = CP.VPOS.Enums.Country.TUR,
 	postCode = "34000",
 	taxOffice = "maltepe",
 	townName = "maltepe"
@@ -247,7 +247,7 @@ SaleRequest saleRequest = new SaleRequest
 		cardExpiryDateYear = 2050,
 		cardCVV = "988",
 		amount = (decimal)10,
-		currency = Banka.VPOS.Enums.Currency.TRY,
+		currency = CP.VPOS.Enums.Currency.TRY,
 		installment = 1,
 	},
 	payment3D = new Payment3D
